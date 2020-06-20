@@ -1,0 +1,18 @@
+{% extends 'energy/masterpage.html' %}
+{% block body %}
+</br>
+<h3>The control buttons below will start Otii supplying the nessasary 3.87V on the main channel and stop it
+    respectively:</h3>
+</br>
+<form action="" method="post">
+    {% csrf_token %}
+    <button type="submit" class="pure-material-button-contained" name='start_otii'>Start Otii</button>
+    <button type="submit" class="pure-material-button-contained" name='stop_otii'>Stop Otii</button>
+</form>
+{{message|linebreaksbr}}
+{% endblock %}
+{% block js %}
+<script type="text/javascript">
+    $("#otii").addClass("active");
+</script>
+{% endblock %}

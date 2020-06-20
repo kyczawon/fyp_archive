@@ -1,0 +1,90 @@
+{% extends 'energy/masterpage.html' %}
+{% block extra_head %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+</link>
+{% endblock%}
+{% block extra_nav %}
+<li class="nav-item">
+    <a class="nav-link  text-nowrap" href="{% url 'energy:benchmark' benchmark_id %}">This Benchmark</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link active  text-nowrap" href="">Result</a>
+</li>
+{% endblock%}
+{% block body %}
+<div>
+    <img style='display: inline-block;width:80%' src="{{graph_src}}">{% if screenshot %}<img
+        style='display: inline-block;width:20%' src="{{screenshot}}">{% endif %}
+</div>
+<br />
+<a style='float:none' class="pure-material-button-contained" href="{{csv}}" class="button">Download data as csv</a>
+{% if measurements %}
+<a style='color: white;' class="pure-material-button-contained" id='log_button' onclick="myFunction()"
+    class="button">Show
+    Logs</a>
+<div style='display:none' id="logs">
+    {{message|linebreaksbr}}
+</div>
+{% else %}
+<a style='color: white;' class="pure-material-button-contained" id='log_button' onclick="myFunction()"
+    class="button">Hide Logs</a>
+<div id="logs">
+    {{message|linebreaksbr}}
+</div>
+{% endif %}
+<br />
+
+<table id="nice_table" style=' display:none; float:left;' class="table table-striped table-bordered table-sm"
+    cellspacing="0" width="70%">
+    <thead>
+        <tr>
+            <th>time (s)</th>
+            <th>current (A)</th>
+            <th>voltage (V)</th>
+            <th>energy (J)</th>
+        </tr>
+    </thead>
+
+    {% for measurement in measurements %}
+    <tr>
+        <th scope="row">{{measurement.time}}</th>
+        <td>{{measurement.current |floatformat:"2" }}</td>
+        <td>{{measurement.voltage|floatformat:"2" }}</td>
+        <td>{{measurement.energy|floatformat:"2" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock%}
+{% block js %}
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#nice_table').DataTable({
+            "lengthMenu": [[20, 50, 100, -1], [20, 50, 100, "All"]],
+            "pageLength": 50,
+            "order": [[0, "asc"]],
+            // the table takes a few seconds to load, and it's unformatted till it does so show it only when it loads
+            "initComplete": function () {
+                $("#nice_table").show();
+            }
+        });
+    })
+    function myFunction() {
+        var x = document.getElementById("logs");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+            $('#log_button').text('Hide Logs');
+        } else {
+            x.style.display = "none";
+            $('#log_button').text('Show Logs');
+        }
+    }
+</script>
+{% endblock%}

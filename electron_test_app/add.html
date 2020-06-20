@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self' https://cdnjs.cloudflare.com/ajax/libs/materialize/; script-src 'self'">
+    <title>Leszek's FYP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  </head>
+  <body>
+    <div class="container">
+        <div>
+          <label>Enter Item</label>
+          <input type="text" id="item" autofocus>
+        </div>
+        <button id="submit">Add Item</button>
+        <button id="run">Run</button>
+    </div>
+    <script src="./add_render.js"></script>
+  </body>
+</html>

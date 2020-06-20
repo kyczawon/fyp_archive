@@ -1,0 +1,400 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+\endhead
+\textbf{model} & \textbf{name} & \textbf{num\_samples} &
+\textbf{avg\_time\_diff} & \textbf{avg\_discharge} & \textbf{avg\_power}
+& \textbf{avg\_power2}\tabularnewline
+A574BL & com.android.chrome & 3052 & 24.6797 & 0.00826006 & 0.0532085 &
+2.15254\tabularnewline
+ASUS\_Z007 & com.android.chrome & 1080 & 58.6267 & 0.00396634 &
+0.0257397 & 2.33303\tabularnewline
+Lenovo A6010 & com.android.chrome & 1057 & 35.3953 & 0.00737845 &
+0.150508 & 3.86263\tabularnewline
+ASUS\_T00J & com.android.chrome & 833 & 29.0833 & 0.0056829 & (null) &
+2.43803\tabularnewline
+Andromax C46B2H & com.android.chrome & 589 & 34.8776 & 0.0049093 &
+(null) & 2.12356\tabularnewline
+ASUS\_T00F & com.android.chrome & 567 & 28.7333 & 0.00571539 & (null) &
+2.60493\tabularnewline
+ONE A2001 & com.android.chrome & 357 & 49.8333 & 0.00247492 & 0.0924549
+& 2.58902\tabularnewline
+Z557BL & com.android.chrome & 330 & 37.5625 & 0.00579035 & 0.435518 &
+2.33706\tabularnewline
+Andromax A A16C3H & com.android.chrome & 308 & 17.6923 & 0.00834783 &
+(null) & 3.97719\tabularnewline
+LGMP260 & com.android.chrome & 304 & 34.3529 & 0.00529966 & 0.165906 &
+1.63604\tabularnewline
+XT1060 & com.android.chrome & 272 & 80.0909 & 0.00267877 & 0.0899338 &
+2.39826\tabularnewline
+5056N & com.android.chrome & 267 & 39 & 0.00168968 & 0.0373698 &
+2.4917\tabularnewline
+5056A & com.android.chrome & 252 & 36.6818 & 0.00333333 & 0.134775 &
+3.17788\tabularnewline
+GT-I9195 & com.android.chrome & 217 & 24.5882 & 0.01311 & 0.40448 &
+2.33384\tabularnewline
+Andromax B26D2H & com.android.chrome & 205 & 19 & 0.0103715 & (null) &
+3.32168\tabularnewline
+VS986 & com.android.chrome & 187 & 24.037 & 0.00312789 & 0.193804 &
+2.65791\tabularnewline
+GT-N8000 & com.android.chrome & 178 & 131.158 & 0.00185393 & 0.0688235 &
+0.00367105\tabularnewline
+LGMS210 & com.android.chrome & 171 & 18.08 & 0.0102876 & 753.809 &
+1698.28\tabularnewline
+SH-05F & com.android.chrome & 156 & 43 & 0.00408034 & (null) &
+1.69717\tabularnewline
+LG-TP260 & com.android.chrome & 143 & 17.75 & 0.00906103 & 1.56644 &
+2.07695\tabularnewline
+LG-H810 & com.android.chrome & 133 & 34.2857 & 0.009625 & 1.58029 &
+3.1581\tabularnewline
+LG-M153 & com.android.chrome & 133 & 22.5385 & 0.00993174 & 1.19071 &
+2.39679\tabularnewline
+XT1585 & com.android.chrome & 113 & 25.4286 & 0.00691011 & 2.00057 &
+3.7446\tabularnewline
+ARK Benefit A3 & com.android.chrome & 111 & 69.25 & 0.00942238 & (null)
+& 6.08312\tabularnewline
+SM-T561M & com.android.chrome & 111 & 20.5385 & 0.0041573 & 1.00875 &
+0.00359923\tabularnewline
+RIDGE FAB 4G & com.android.chrome & 107 & 24.1429 & 0.0064497 & 1.53648
+& 3.89546\tabularnewline
+QMobile Z9 & com.android.chrome & 105 & 25.0909 & 0.00496377 & 0.488294
+& 2.50697\tabularnewline
+ASUS\_Z002 & com.android.chrome & 102 & 32 & 0.00523438 & 0.95736 &
+2.77464\tabularnewline
+ASUS\_T00G & com.android.chrome & 98 & 45.8333 & 0.00490909 & (null) &
+1.81737\tabularnewline
+VS501 & com.android.chrome & 96 & 15.8571 & 0.00936937 & 3.17867 &
+1.5868\tabularnewline
+Andromax A16C3H & com.android.chrome & 90 & 35.4118 & 0.00212625 &
+(null) & 3.72592\tabularnewline
+Moto G (5) & com.android.chrome & 89 & 15.9 & 0.00748428 & 1.78403 &
+1.66079\tabularnewline
+C6833 & com.android.chrome & 87 & 19.2632 & 0.00497268 & 0.563745 &
+3.21012\tabularnewline
+HUAWEI SCC-U21 & com.android.chrome & 87 & 19.75 & 0.00734177 & 1.33222
+& 3.97793\tabularnewline
+Redmi Note 3 & com.android.chrome & 82 & 33.75 & 0.00811111 & 1.69451 &
+2.37299\tabularnewline
+Z851M & com.android.chrome & 79 & 43.5 & 0.00931035 & 1.35225 &
+2.74921\tabularnewline
+Moto E (4) & com.android.chrome & 77 & 29.1 & 0.00656357 & 0.884873 &
+1.9172\tabularnewline
+Z981 & com.android.chrome & 77 & 38.25 & 0.00362745 & 0.512015 &
+3.71445\tabularnewline
+GT-P5200 & com.android.chrome & 76 & 41 & 0.0054878 & 0.956819 &
+0.00350417\tabularnewline
+VS980 4G & com.android.chrome & 76 & 32.8889 & 0.00581081 & 0.77645 &
+0.114343\tabularnewline
+Lenovo A6000 & com.android.chrome & 74 & 15.2857 & 0.00841121 & 2.41386
+& 1.86488\tabularnewline
+Z558VL & com.android.chrome & 74 & 19 & 0.00657895 & 2.61828 &
+2.68548\tabularnewline
+GT-I9190 & com.android.chrome & 69 & 20.9 & 0.00569378 & 0.70195 &
+1.64543\tabularnewline
+LG-K120 & com.android.chrome & 67 & 22.5556 & 0.00482759 & 0.664536 &
+1.45418\tabularnewline
+Z958 & com.android.chrome & 66 & 15.75 & 0.0133333 & 4.44714 &
+2.05118\tabularnewline
+General Mobile 4G Dual & com.android.chrome & 65 & 17 & 0.0103529 &
+(null) & 4.30045\tabularnewline
+LGL158VL & com.android.chrome & 62 & 32.1 & 0.00417445 & 0.533425 &
+2.5891\tabularnewline
+Z220 & com.android.chrome & 57 & 28.6667 & 0.00709302 & 1.24804 &
+1.83114\tabularnewline
+ASUS\_Z00ED & com.android.chrome & 56 & 31.25 & 0.0072 & 1.82269 &
+5.28407\tabularnewline
+A0001 & com.android.chrome & 53 & 20.4444 & 0.00733696 & 1.64206 &
+0.00369\tabularnewline
+Z839 & com.android.chrome & 50 & 28.3333 & 0.00447059 & (null) &
+2.91883\tabularnewline
+LG-H815 & com.android.chrome & 49 & 30.6667 & 0.00771739 & 3.40337 &
+2.37672\tabularnewline
+Lenovo A2020a40 & com.android.chrome & 48 & 39.2857 & 0.00276364 &
+0.313823 & 3.70516\tabularnewline
+LM-X210(G) & com.android.chrome & 48 & 20 & 0.0133 & 4.31792 &
+0.651108\tabularnewline
+SM-T560 & com.android.chrome & 48 & 22 & 0.00472727 & 2.72291 &
+0.00352\tabularnewline
+SM-G3815 & com.android.chrome & 47 & 25.8 & 0.00596899 & 1.26212 &
+2.99969\tabularnewline
+Ilium LT500 & com.android.chrome & 42 & 26.5714 & 0.00510753 & (null) &
+7.72702\tabularnewline
+Aquaris M5 & com.android.chrome & 41 & 19.6 & 0.00479592 & 2.08875 &
+2.75652\tabularnewline
+Lenovo K33b36 & com.android.chrome & 41 & 16.25 & 0.00953846 & 6.06206 &
+2.43748\tabularnewline
+RS988 & com.android.chrome & 41 & 11 & 0.0136364 & 15.9392 &
+2.48223\tabularnewline
+Z959 & com.android.chrome & 41 & 26.75 & 0.00476636 & 1.87072 &
+6.52965\tabularnewline
+LG-H950 & com.android.chrome & 40 & 19 & 0.00605263 & 3.105 &
+3.23997\tabularnewline
+LGUS215 & com.android.chrome & 39 & 22.8 & 0.00640351 & 1904.81 &
+1863.58\tabularnewline
+E2363 & com.android.chrome & 38 & 33.5 & 0.00880597 & 4.57637 &
+2.55905\tabularnewline
+LM-X410.F & com.android.chrome & 34 & 36.6667 & 0.00372727 & 1.41013 &
+1.5362\tabularnewline
+GT-I9192 & com.android.chrome & 33 & 36 & 0.00435185 & 0.966498 &
+3.02742\tabularnewline
+Andromax A26C4H & com.android.chrome & 32 & 35 & 0.00885714 & (null) &
+3.78\tabularnewline
+ASUS\_A009 & com.android.chrome & 32 & 75.5 & 0.00258278 & 0.737068 &
+1.6778\tabularnewline
+Z3001S & com.android.chrome & 32 & 52.3333 & 0.0088535 & 1.60297 &
+2.19584\tabularnewline
+LG-D855 & com.android.chrome & 31 & 25.6667 & 0.00337662 & 1.72866 &
+0.0340667\tabularnewline
+L50 & com.android.chrome & 30 & 20.5 & 0.00597561 & 1.83431 &
+1.99364\tabularnewline
+SM-N930F & com.android.chrome & 30 & 22 & 0.00530303 & 3.50289 &
+0.00346\tabularnewline
+LT30p & com.android.chrome & 29 & 12 & 0.0183333 & 19.3579 &
+2.02997\tabularnewline
+MI 5s & com.android.chrome & 29 & 15.5 & 0.0263441 & 11.8946 &
+2.49865\tabularnewline
+YD201 & com.android.chrome & 29 & 65.75 & 0.000418251 & 0.055784 &
+3.19108\tabularnewline
+LG-D802 & com.android.chrome & 28 & 24 & 0.00333333 & 1.73833 &
+0.0996644\tabularnewline
+LG-D410 & com.android.chrome & 26 & 42.5 & 0.00235294 & 0.935282 &
+1.32835\tabularnewline
+Andromax B16C2H & com.android.chrome & 25 & 20.3333 & 0.00590164 &
+(null) & 6.15613\tabularnewline
+E6653 & com.android.chrome & 25 & 25.3333 & 0.00710526 & 3.64713 &
+1.3315\tabularnewline
+HUAWEI G7-L03 & com.android.chrome & 25 & 44 & 0.00261364 & 1.16117 &
+0.80545\tabularnewline
+ONEPLUS A3003 & com.android.chrome & 25 & 15.5 & 0.0112903 & 15.5959 &
+1.55428\tabularnewline
+Redmi Note 5A & com.android.chrome & 25 & 28 & 0.00517857 & 3.80408 &
+2.46715\tabularnewline
+VS425PP & com.android.chrome & 25 & 20 & 0.00383333 & (null) &
+1.93481\tabularnewline
+A577VL & com.android.chrome & 24 & 20 & 0.005 & 4.9941 &
+3.14861\tabularnewline
+Alcatel\_5044C & com.android.chrome & 24 & 17 & 0.00607843 & 3.40106 &
+1.8328\tabularnewline
+Aquaris X5 Plus & com.android.chrome & 24 & 49.3333 & 0.00148649 &
+0.455877 & 2.81316\tabularnewline
+E6853 & com.android.chrome & 24 & 20 & 0.0156667 & 12.3487 &
+2.56227\tabularnewline
+LGM-K121K & com.android.chrome & 24 & 47.5 & 0.00315789 & 1.15096 &
+2.48866\tabularnewline
+Moto G (5S) Plus & com.android.chrome & 24 & 42 & 0.00678571 & (null) &
+1.50924\tabularnewline
+SO-02F & com.android.chrome & 24 & 21.25 & 0.0148235 & 5.30665 &
+2.61109\tabularnewline
+XT1045 & com.android.chrome & 24 & 34 & 0.0165686 & 4.72492 &
+1.83327\tabularnewline
+GT-S7275R & com.android.chrome & 23 & 52.4 & 0.00179389 & 0.144344 &
+1.47415\tabularnewline
+VF-895N & com.android.chrome & 22 & 31.6667 & 0.00178947 & 0.605219 &
+3.28321\tabularnewline
+305SH & com.android.chrome & 19 & 15.75 & 0.00507936 & 2.30922 &
+1.73647\tabularnewline
+GT-N8013 & com.android.chrome & 19 & 33.5714 & 0.00451064 & 1.79312 &
+0.00370714\tabularnewline
+LG-M703 & com.android.chrome & 19 & 17 & 0.005 & 5.95588 &
+2.13937\tabularnewline
+Moto G (4) & com.android.chrome & 18 & 17 & 0.00882353 & 20.292 &
+3.52226\tabularnewline
+C103 & com.android.chrome & 17 & 27.3333 & 0.00670732 & 4.69448 &
+2.87301\tabularnewline
+LGT02 & com.android.chrome & 17 & 42 & 0.00690476 & 11650 &
+2669.71\tabularnewline
+HS-L671 & com.android.chrome & 16 & 13.3333 & 0.00625 & (null) &
+3.98009\tabularnewline
+XT1058 & com.android.chrome & 16 & 16 & 0.009375 & 19.305 &
+2.26304\tabularnewline
+ASUS\_Z00RD & com.android.chrome & 15 & 28 & 0.00214286 & 1.01729 &
+2.26793\tabularnewline
+Redmi Note 4 & com.android.chrome & 15 & 23.5 & 0.00723404 & 9.04175 &
+1.35121\tabularnewline
+C6743 & com.android.chrome & 14 & 40 & 0.00375 & 2.46645 &
+5.14692\tabularnewline
+XT1033 & com.android.chrome & 14 & 18.5 & 0.00378378 & 2.92637 &
+2.92608\tabularnewline
+RAINBOW LITE 4G & com.android.chrome & 13 & 67 & 0.00179104 & 0.692894 &
+4.3992\tabularnewline
+DLI-TL20 & com.android.chrome & 12 & 12 & 0.0366667 & 132.548 &
+3.37953\tabularnewline
+E2306 & com.android.chrome & 12 & 13 & 0.0161538 & 37.1469 &
+3.91326\tabularnewline
+K010 & com.android.chrome & 12 & 20.5 & 0.0236585 & 38.5346 &
+2.13696\tabularnewline
+SM-T561 & com.android.chrome & 12 & 38 & 0.00192982 & 1.06547 &
+0.00349667\tabularnewline
+LG-H440AR & com.android.chrome & 11 & 15 & 0.0133333 & 12.2304 &
+2.64628\tabularnewline
+Redmi 4X & com.android.chrome & 11 & 36.5 & 0.00383562 & 2.91212 &
+1.90003\tabularnewline
+SM-N910F & com.android.chrome & 11 & 47 & 0.00255319 & 0.559265 &
+0.0035525\tabularnewline
+GT-N8020 & com.android.chrome & 9 & 83.5 & 0.00179641 & 1.05584 &
+0.003895\tabularnewline
+XT1032 & com.android.chrome & 9 & 16 & 0.008125 & 13.7367 &
+1.31406\tabularnewline
+Karbonn Aura 1 & com.android.chrome & 8 & 22 & 0.00954545 & (null) &
+5.69235\tabularnewline
+LG-M430 & com.android.chrome & 8 & 13 & 0.0107692 & 35.0235 &
+1.84601\tabularnewline
+C6603 & com.android.chrome & 7 & 14 & 0.00142857 & 1.56633 &
+2.84565\tabularnewline
+KYOCERA-C6742 & com.android.chrome & 7 & 16 & 0.004375 & 7.64859 &
+3.1487\tabularnewline
+Lenovo A6020l36 & com.android.chrome & 7 & 43 & 0.000697674 & 0.539708 &
+7.89936\tabularnewline
+S4035\_4G & com.android.chrome & 7 & 32 & 0.0090625 & (null) &
+3.34656\tabularnewline
+ASUS\_X014D & com.android.chrome & 6 & 16 & 0.000625 & 0.545801 &
+1.61812\tabularnewline
+GT-I9301I & com.android.chrome & 6 & 61.5 & 0.00853659 & 2.04891 &
+0.28897\tabularnewline
+LS-5016 & com.android.chrome & 6 & 14 & 0.00357143 & 8.37863 &
+1.85107\tabularnewline
+LGUS110 & com.android.chrome & 5 & 20.5 & 0.00609756 & 4.05321 &
+1.66731\tabularnewline
+MotoE2 & com.android.chrome & 5 & 27 & 0.00148148 & 1.74677 &
+2.1349\tabularnewline
+SAMSUNG-SM-N910A & com.android.chrome & 5 & 25 & 0.0044 & 7.63032 &
+0.00374\tabularnewline
+STARADDICT 6 & com.android.chrome & 5 & 14 & 0.00642857 & (null) &
+1.77175\tabularnewline
+X10 & com.android.chrome & 5 & 12 & 0.0533333 & 85.68 &
+5.01585\tabularnewline
+6055K & com.android.chrome & 4 & 32 & 0.0009375 & 1.19744 &
+0.03045\tabularnewline
+Coolpad A8 & com.android.chrome & 4 & 52 & 0.0103846 & 7.62934 &
+5.44623\tabularnewline
+G620S-L01 & com.android.chrome & 4 & 21.5 & 0.000465116 & 0.288935 &
+1.36899\tabularnewline
+MI 2S & com.android.chrome & 4 & 35 & 0.000571429 & 0.434939 &
+3.0784\tabularnewline
+Neffos Y5 & com.android.chrome & 4 & 15 & 0.00333333 & 9.01168 &
+2.68187\tabularnewline
+SM-T113NU & com.android.chrome & 4 & 16.5 & 0.00272727 & 3.92013 &
+0.00366\tabularnewline
+UL40 & com.android.chrome & 4 & 24 & 0.00125 & 2.0235 &
+2.63055\tabularnewline
+6070K & com.android.chrome & 3 & 20 & 0.0015 & 3.078 &
+1.1362\tabularnewline
+Aquaris X5 & com.android.chrome & 3 & 13 & 0.00153846 & 5.05321 &
+1.25972\tabularnewline
+C5502 & com.android.chrome & 3 & 33 & 0.000606061 & 0.606744 &
+1.8354\tabularnewline
+Coolpad 5267 & com.android.chrome & 3 & 18 & 0.00777778 & (null) &
+1.32308\tabularnewline
+GT-I8730 & com.android.chrome & 3 & 59 & 0.00440678 & 2.15111 &
+2.36\tabularnewline
+LG-M250 & com.android.chrome & 3 & 11 & 0.0145455 & 47.451 &
+3.31436\tabularnewline
+LG-MS770 & com.android.chrome & 3 & 11 & 0.00181818 & 3.62142 &
+1.12054\tabularnewline
+RIDGE 4G & com.android.chrome & 3 & 11 & 0.00272727 & 8.48291 &
+5.90436\tabularnewline
+Z899VL & com.android.chrome & 3 & 39 & 0.00025641 & 0.270092 &
+1.672\tabularnewline
+5027B & com.android.chrome & 2 & 18 & 0.0188889 & 18.6169 &
+2.66112\tabularnewline
+ASUS\_T00I & com.android.chrome & 2 & 16 & 0.0025 & 2.45025 &
+2.26875\tabularnewline
+K014 & com.android.chrome & 2 & 13 & 0.000769231 & 5.45496 &
+0.00388\tabularnewline
+Le 1 Pro & com.android.chrome & 2 & 21 & 0.00380952 & 10.7363 &
+1.52481\tabularnewline
+Lenovo K33a48 & com.android.chrome & 2 & 12 & 0.000833333 & 2.7375 &
+2.3068\tabularnewline
+LS-4505 & com.android.chrome & 2 & 13 & 0.00153846 & 2.96776 &
+2.55033\tabularnewline
+Moto Z2 Play & com.android.chrome & 2 & 11 & 0.0727273 & 294.188 &
+1.59032\tabularnewline
+ONE E1003 & com.android.chrome & 2 & 14 & 0.000714286 & 1.67887 &
+2.41092\tabularnewline
+Redmi 5A & com.android.chrome & 2 & 19 & 0.0194737 & 40.4028 &
+2.53675\tabularnewline
+SM-J327T1 & com.android.chrome & 2 & 17 & 0.00588235 & 12.377 &
+0.00414\tabularnewline
+XT1580 & com.android.chrome & 2 & 17 & 0.00117647 & 3.79383 &
+1.6686\tabularnewline
+LGMS210 & com.brave.browser & 12 & 13 & 0.00153846 & 3760.97 &
+1457.87\tabularnewline
+GT-I9195 & com.microsoft.emmx & 23 & 18.5 & 0.0218018 & 5.21039 &
+1.50156\tabularnewline
+ASUS\_Z011D & com.opera.browser & 41 & 18.3333 & 0.00872727 & 6.38646 &
+3.26704\tabularnewline
+GT-I9192 & org.mozilla.firefox & 3295 & 40.7759 & 0.0038148 & 0.00789151
+& 1.42244\tabularnewline
+HTC 10 & org.mozilla.firefox & 155 & 16 & 0.00744792 & 1.52042 &
+3.26111\tabularnewline
+GT-I9195 & org.mozilla.firefox & 25 & 28.4 & 0.0112676 & 1.97778 &
+3.54998\tabularnewline
+LG-M150 & org.mozilla.firefox & 22 & 28 & 0.00410714 & (null) &
+2.89177\tabularnewline
+Redmi 4X & org.mozilla.firefox & 20 & 36 & 0.00159722 & 0.677781 &
+1.9872\tabularnewline
+ASUS\_Z002 & org.mozilla.firefox & 2 & 17 & 0.00529412 & 13.1338 &
+3.61035\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{document}

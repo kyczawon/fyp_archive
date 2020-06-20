@@ -1,0 +1,113 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{longtable}[]{@{}llllllll@{}}
+\toprule
+\endhead
+\textbf{model} & \textbf{name} & \textbf{importance} &
+\textbf{num\_samples} & \textbf{avg\_time\_diff} &
+\textbf{avg\_discharge} & \textbf{avg\_power} &
+\textbf{avg\_power2}\tabularnewline
+Nexus 5 & com.reddit.frontpage & Service & 3498 & 10.5269 & 0.0191866 &
+0.344812 & 1.88618\tabularnewline
+ONE A2003 & com.reddit.frontpage & Service & 1715 & 20.5354 & 0.0180079
+& 0.393604 & 3.40551\tabularnewline
+ONEPLUS A3003 & com.reddit.frontpage & Service & 1088 & 12.254 &
+0.0138342 & 0.783542 & 1.53724\tabularnewline
+MI 5 & com.reddit.frontpage & Service & 1085 & 7.19737 & 0.0305302 &
+2.4179 & 1.39114\tabularnewline
+S60 & com.reddit.frontpage & Service & 782 & 22.0577 & 0.0100174 &
+0.454352 & 1.11995\tabularnewline
+Redmi 4X & com.reddit.frontpage & Service & 423 & 42.6429 & 0.00664992 &
+0.662807 & 1.06833\tabularnewline
+RIDGE FAB 4G & com.reddit.frontpage & Service & 240 & 16.5 & 0.00979798
+& 1.26839 & 3.69086\tabularnewline
+Lenovo A6020a40 & com.reddit.frontpage & Service & 208 & 8.80769 &
+0.0365502 & 6.10959 & 2.74613\tabularnewline
+LML413DL & com.reddit.frontpage & Service & 160 & 18 & 0.0164815 &
+5.35148 & 1.89705\tabularnewline
+A574BL & com.reddit.frontpage & Service & 146 & 13.7 & 0.00919708 &
+1.67133 & 2.0328\tabularnewline
+A0001 & com.reddit.frontpage & Service & 90 & 13.5333 & 0.0125123 &
+2.63683 & 0.00383333\tabularnewline
+Aquaris X5 Plus & com.reddit.frontpage & Service & 84 & 12.4286 &
+0.0209195 & 10.3599 & 2.24293\tabularnewline
+RIDGE FAB 4G & com.reddit.frontpage & Foreground app & 78 & 14.1667 &
+0.00835294 & 3.63472 & 3.75992\tabularnewline
+LG-TP450 & com.reddit.frontpage & Service & 69 & 13 & 0.0145192 &
+6.11449 & 1.61111\tabularnewline
+Redmi 4X & com.reddit.frontpage & Background process & 20 & 22 &
+0.00727273 & 18.6391 & 1.50126\tabularnewline
+Mi 4i & com.reddit.frontpage & Service & 15 & 3.66667 & 0.0163636 &
+64.1059 & 3.0834\tabularnewline
+LG-K550 & com.reddit.frontpage & Service & 7 & 28 & 0.0114286 & 15.5109
+& 1.73264\tabularnewline
+Redmi Note 3 & com.reddit.frontpage & Background process & 4 & 1 & 0.03
+& 1627.13 & 1.56612\tabularnewline
+ONE A2001 & com.reddit.frontpage & Service & 3 & 1 & 0.02 & 948.024 &
+0.81795\tabularnewline
+MI 5 & com.andrewshu.android.reddit & Service & 2 & 2 & 0.03 & 635.04 &
+2.54408\tabularnewline
+Redmi Note 3 & org.quantumbadger.redreader & Background process & 2 & 1
+& 0.01 & 539.46 & 0.0407\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{document}

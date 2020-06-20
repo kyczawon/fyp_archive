@@ -1,0 +1,147 @@
+{% extends 'energy/masterpage.html' %}
+{% block extra_head %}
+
+{% load static %}
+<link href="{% static 'energy/dropzone.css' %}" type="text/css" rel="stylesheet" />
+{% endblock%}
+{% block body %}
+
+<h1>Energy Benchmark</h1>
+<h3>
+    The zip file must contain folders with Tasks that will be compared across devices. Each of the Task folders then
+    needs to contain the UI automation scripts which are named after the application package name they are testing. For
+    example a script testing Google Chrome would be named 'com.android.chrome.py'.If the option to use initialisation
+    scripts is selected, the initialization scripts must be named with '_init' appended to the package name. For example
+    a valid initialisation script for Google Chrome would be 'com.android.chrome_init.py'. Files that are used across
+    benchmarks and should not be executed can be placed in the root of the zip file. For example, the following
+    structure would work when initialisation option is selected:
+    <ul>
+        <li>Browser Benchmark.zip</li>
+        <ul>
+            <li>common.py</li>
+            <li>Browsing</li>
+            <ul>
+                <li>com.android.chrome.py</li>
+                <li>com.android.chrome_init.py</li>
+                <li>com.brave.browser.py</li>
+                <li>com.brave.browser_init.py</li>
+            </ul>
+            <li>Video watching</li>
+            <ul>
+                <li>com.android.chrome.py</li>
+                <li>com.android.chrome_init.py</li>
+                <li>com.brave.browser.py</li>
+                <li>com.brave.browser_init.py</li>
+            </ul>
+        </ul>
+    </ul>
+</h3>
+<!-- IMPORTANT enctype attribute! -->
+<form method="post" action="{% url 'energy:index' %}" enctype="multipart/form-data">
+    <div class="dropzone" id="myDropzone"></div>
+    </br>
+    <label>select category (add new one by typing): </label>
+    <input type="text" list="categories" name="category" autocomplete="off" />
+    <datalist id="categories">
+        {% for category in categories %}
+        <option>{{category}}</option>
+        {% endfor %}
+    </datalist>
+    </br>
+    <label for="exec_prog">Choose UI automation execution program:</label>
+    <select name="exec_prog" id="exec_prog">
+        {% for key,value in exec_progs.items %}
+        <option value="{{key}}">{{value}}</option>
+        {% endfor %}
+    </select>
+    </br>
+    <label for="clear_cache">Clear cache of the application tested</label>
+    <input type="checkbox" id="clear_cache" name="clear_cache" value="clear_cache" style="width:20px;height:20px;"
+        checked>
+    </br>
+    <label for="close_apps">Close all applications before each script</label>
+    <input type="checkbox" id="close_apps" name="close_apps" value="close_apps" style="width:20px;height:20px;" checked>
+    </br>
+    <label for="init">Run initialisation scripts before each application</label>
+    <input type="checkbox" id="init" name="init" value="init" style="width:20px;height:20px;" checked>
+</form>
+<button id="submit-all" class="pure-material-button-contained" disabled='true'>
+    Submit all files
+</button>
+<br><br>
+
+{% endblock %}
+{% block js %}
+
+<script src="{% static 'energy/dropzone.js' %}"></script>
+<script type="text/javascript">
+    $("#home").addClass("active");
+
+    var submitButton = document.querySelector("#submit-all")
+    let mydropzone;
+    Dropzone.options.myDropzone = {
+
+        // Prevents Dropzone from uploading dropped files immediately
+        autoProcessQueue: false,
+        uploadMultiple: false,
+        acceptedFiles: "application/zip",
+        dictDefaultMessage: "Drop a zip file here or click to upload",
+        url: "{% url 'energy:index' %}",
+
+        headers: {
+            "X-CSRFToken": "{{ csrf_token }}"
+        },
+
+
+
+        init: function () {
+            mydropzone = this;
+
+            submitButton.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                mydropzone.processQueue();
+                // Tell Dropzone to process all queued files.
+            });
+
+            // You might want to show the submit button only when
+            // files are dropped here:
+            this.on("addedfile", function () {
+                console.log($("input[name='category']").val())
+                if ($("input[name='category']").val() != "") {
+                    submitButton.disabled = false;
+                }
+            });
+
+            // hack to send other inputs alonh with the dropzone post
+            this.on("success", function (file, response) {
+                window.location.href = JSON.parse(file.xhr.response).url
+            });
+
+            // hack to send other inputs alonh with the dropzone post
+            this.on("sending", function (data, xhr, formData) {
+                console.log("sending")
+                formData.append("category", $("[name='category']").val());
+                formData.append("exec_prog", $("[name='exec_prog']").val());
+                console.log($("[name='exec_prog']").val())
+                formData.append("clear_cache", $("[name='clear_cache']").prop("checked"));
+                formData.append("close_apps", $("[name='close_apps']").prop("checked"));
+                formData.append("init", $("[name='init']").prop("checked"));
+            });
+        }
+    };
+
+    $("input[name='category']").on("change", function () {
+        console.log('changed')
+        console.log(mydropzone.files.length)
+        if ($(this).val() != "" && mydropzone.files.length) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+{% endblock %}

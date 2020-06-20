@@ -1,0 +1,1 @@
+adb shell 'pm list packages' | sed -e "s/package\://" | xargs -I {} bash -c ' if (xargs -n1 adb shell pm path | grep -q /data/app/); then xargs -n1 adb shell pm path; else echo 'not found'; fi'

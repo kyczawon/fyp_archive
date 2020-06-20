@@ -1,0 +1,81 @@
+{% extends 'energy/masterpage.html' %}
+{% load filters %}
+{% load mathfilters %}
+{% block extra_nav %}
+<li class="nav-item">
+    <a class="nav-link active  text-nowrap" href="">This Benchmark</a>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+        aria-expanded="false">Results</a>
+    <div class="dropdown-menu">
+        {% for task in tasks %}
+        {% for app in apps %}
+        {% if results|one_more:app|get_item_from_tuple:task %}
+        {% if results|one_more:app|get_item_from_tuple:task|get_tuple:0 != None %}
+        <a class="dropdown-item" href="{{results|one_more:app|get_item_from_tuple:task|get_tuple:2}}">Task
+            {{results|one_more:app|get_item_from_tuple:task|get_tuple:1}}:
+            {{results|one_more:app|get_item_from_tuple:task|get_tuple:0}} W</a>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </div>
+</li>
+{% endblock%}
+{% block body %}
+{% if total != 0 %}
+<h1>Progress: Total: {{total}}, Started:{{started}}, Finished:{{finished}}, Failed:{{failed}}</h1>
+<div class="progress">
+    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+        aria-valuemax="100" style="width: {{finished|div:total|mul:100}}%"></div>
+    <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+        style="width: {{failed|div:total|mul:100}}%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100" style="width: {{started|div:total|mul:100}}%"></div>
+</div>
+<br>
+{% endif %}
+<table id="nice_table">
+    <tr>
+        <td></td>
+        {% for app in apps %}
+        <th>{{app}}</th>
+        {% endfor %}
+    </tr>
+
+    {% for task in tasks %}
+    <tr>
+        <th scope="row">{{task}}</th>
+        {% for app in apps %}
+        <td>
+            {% if results|one_more:app|get_item_from_tuple:task %}
+            {% if results|one_more:app|get_item_from_tuple:task|get_tuple:0 != None %}
+            <a href="{{results|one_more:app|get_item_from_tuple:task|get_tuple:2}}">
+                <div style="height:100%;width:100%">
+
+                    Result {{results|one_more:app|get_item_from_tuple:task|get_tuple:1}}:
+                    {{results|one_more:app|get_item_from_tuple:task|get_tuple:0}} W
+                </div>
+            </a>
+            {% else %}
+            <a href="{{results|one_more:app|get_item_from_tuple:task|get_tuple:2}}">
+                <div style="height:100%;width:100%">
+                    Result {{results|one_more:app|get_item_from_tuple:task|get_tuple:1}}:
+                    {{results|one_more:app|get_item_from_tuple:task|get_tuple:3}}
+                </div>
+            </a>
+            {% endif %}
+            {% endif %}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+{% endblock%}
+{% block js %}
+{{message|linebreaksbr}}
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+{% endblock%}
