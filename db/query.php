@@ -1,7 +1,7 @@
 <?php
 $databasehost='lesz.mariadb.database.azure.com';
 $databaseuser='leszek@lesz';
-$databasepass='te4ejafu!';
+$databasepass='test';
 $databasename='fyp';
 $db=mysqli_connect($databasehost,$databaseuser,$databasepass,$databasename) or die ("Connection failed!");
 $sql="

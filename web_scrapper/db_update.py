@@ -7,7 +7,7 @@ start_time = time.time()
 mydb = mysql.connector.connect(
   host="lesz.mariadb.database.azure.com",
   user="leszek@lesz",
-  passwd="te4ejafu!",
+  passwd="test",
   database="fyp"
 )
 
